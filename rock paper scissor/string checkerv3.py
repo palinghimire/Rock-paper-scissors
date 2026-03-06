@@ -1,6 +1,6 @@
 # Check that users have entered a valid
 # option based on a list
-def string_checker(question, valid_ans=['yes','no']):
+def string_checker(question, valid_ans=('yes','no')):
     #this make it so it stores error as a message to use later
     error = f"please enter a valid options from the following list :{valid_ans}"
 
