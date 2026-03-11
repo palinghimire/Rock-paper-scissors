@@ -1,20 +1,26 @@
-def integer_checker():
+def int_checker(to_check):
     """integer_checker to see if your equal to or more than 13 """
 
-
-    error = "please enter a numer more or equle to 13:"
-
     while True:
-        try:
-            response = int(input("what is the game goal? "))
+        error = "please enter a numer that is 1 or more:"
 
-            if response < 13:
-                print(error)
+        # check for infinte mode
+        if to_check == "":
+            return "infinite"
+
+
+        try:
+            response = int(to_check)
+
+            if response < 1:
+                # print(error)
+                return "invalid"
             else:
                 return response
         
         except ValueError:
-            print(error)
+                # print(error)
+                return "invalid"
 
 
 
@@ -23,9 +29,9 @@ to_test = [
     ('xlii' ,'invalid'),
     ('0','invalid'),
     ('0.5' ,'invalid'),
-    ('1, 1'),
-    ('2, 2'),
-    ('<enter>' ,'infinite'),
+    (1 ,1),
+    (2 ,2),
+    ('','infinite'),
 ]
 
 # run tests!
@@ -35,7 +41,7 @@ for item in to_test:
     expected = item[1]
 
     # get actual value (ie: test ticket function)
-    actual = integer_checker(case, ["yes", "no"])
+    actual = int_checker(case)
 
     # compare actual and expected and output pass / fail
     if actual == expected:
